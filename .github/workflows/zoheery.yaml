@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'My name is zoheery Development' >> file.txt
-      - run: cat file.txt
+      - run: ls -la
 
   prod-job:
     if: ${{ inputs.environment == 'prod' }}
