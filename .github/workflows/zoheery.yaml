@@ -19,6 +19,10 @@ jobs:
     steps:
       - name: checkout step
         uses: actions/checkout@v7
+      - name: setup of Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13t'
       - run: echo 'My name is zoheery Development' >> file.txt
       - run: ls -la
 
