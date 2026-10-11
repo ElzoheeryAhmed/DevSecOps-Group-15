@@ -1,0 +1,28 @@
+name: zoheery-workflow
+run-name: "${{ github.actor }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        type: choice
+        default: dev
+        options:
+          - dev
+          - prod
+
+jobs:
+  dev-job:
+    if: ${{ inputs.environment == 'dev' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'My name is zoheery Development' >> file.txt
+      - run: cat file.txt
+
+  prod-job:
+    if: ${{ inputs.environment == 'prod' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'My name is zoheery Production' >> file.txt
+      - run: cat file.txt
